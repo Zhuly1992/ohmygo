@@ -1,0 +1,66 @@
+bootstrap_expect = 2: A cluster with 2 servers will provide no failure tolerance. See https://www.consul.io/docs/internals/consensus.html#deployment-table
+bootstrap_expect > 0: expecting 2 servers
+==> Starting Consul agent...
+           Version: 'v1.6.1'
+           Node ID: '34a83de6-1925-5a5d-5bf9-c4ac09e5e399'
+         Node name: 's1'
+        Datacenter: 'dc1' (Segment: '<all>')
+            Server: true (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: -1, DNS: 8600)
+      Cluster Addr: 10.176.69.86 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+    2019/12/19 17:02:56 [INFO]  raft: Initial configuration (index=0): []
+    2019/12/19 17:02:56 [INFO]  raft: Node at 10.176.69.86:8300 [Follower] entering Follower state (Leader: "")
+    2019/12/19 17:02:56 [INFO] serf: EventMemberJoin: s1.dc1 10.176.69.86
+    2019/12/19 17:02:56 [INFO] serf: EventMemberJoin: s1 10.176.69.86
+    2019/12/19 17:02:56 [INFO] consul: Adding LAN server s1 (Addr: tcp/10.176.69.86:8300) (DC: dc1)
+    2019/12/19 17:02:56 [INFO] consul: Handled member-join event for server "s1.dc1" in area "wan"
+    2019/12/19 17:02:56 [WARN] agent: Service name "web_service" will not be discoverable via DNS due to invalid characters. Valid characters include all alpha-numerics and dashes.
+    2019/12/19 17:02:56 [INFO] agent: Started DNS server 0.0.0.0:8600 (tcp)
+    2019/12/19 17:02:56 [INFO] agent: Started DNS server 0.0.0.0:8600 (udp)
+    2019/12/19 17:02:56 [INFO] agent: Started HTTP server on [::]:8500 (tcp)
+    2019/12/19 17:02:56 [INFO] agent: started state syncer
+==> Consul agent running!
+    2019/12/19 17:03:03 [WARN]  raft: no known peers, aborting election
+    2019/12/19 17:03:04 [ERR] agent: failed to sync remote state: No cluster leader
+bootstrap_expect = 2: A cluster with 2 servers will provide no failure tolerance. See https://www.consul.io/docs/internals/consensus.html#deployment-table
+bootstrap_expect > 0: expecting 2 servers
+==> Starting Consul agent...
+           Version: 'v1.6.1'
+           Node ID: '34a83de6-1925-5a5d-5bf9-c4ac09e5e399'
+         Node name: 's2'
+        Datacenter: 'dc1' (Segment: '<all>')
+            Server: true (Bootstrap: false)
+       Client Addr: [127.0.0.1] (HTTP: 8500, HTTPS: -1, gRPC: -1, DNS: 8600)
+      Cluster Addr: 10.176.69.86 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+==> Newer Consul version available: 1.6.2 (currently running: 1.6.1)
+    2019/12/19 17:03:21 [ERR] agent: Coordinate update error: No cluster leader
+    2019/12/19 17:03:28 [ERR] agent: failed to sync remote state: No cluster leader
+    2019/12/19 17:03:31 [INFO]  raft: Initial configuration (index=0): []
+    2019/12/19 17:03:31 [INFO]  raft: Node at 10.176.69.86:8300 [Follower] entering Follower state (Leader: "")
+    2019/12/19 17:03:31 [INFO] serf: EventMemberJoin: s2.dc1 10.176.69.86
+    2019/12/19 17:03:31 [INFO] serf: Attempting re-join to previously known node: s1.dc1: 10.176.69.86:8302
+    2019/12/19 17:03:31 [INFO] serf: EventMemberJoin: s2 10.176.69.86
+    2019/12/19 17:03:31 [INFO] consul: Adding LAN server s2 (Addr: tcp/10.176.69.86:8300) (DC: dc1)
+    2019/12/19 17:03:31 [INFO] consul: Handled member-join event for server "s2.dc1" in area "wan"
+    2019/12/19 17:03:31 [INFO] serf: Attempting re-join to previously known node: s1: 10.176.69.86:8301
+    2019/12/19 17:03:31 [INFO] agent: Started DNS server 127.0.0.1:8600 (tcp)
+    2019/12/19 17:03:31 [INFO] agent: Started DNS server 127.0.0.1:8600 (udp)
+    2019/12/19 17:03:31 [INFO] agent: Started HTTP server on 127.0.0.1:8500 (tcp)
+==> Joining cluster...
+    2019/12/19 17:03:31 [INFO] agent: (LAN) joining: [10.176.69.86]
+    2019/12/19 17:03:31 [INFO] serf: Re-joined to previously known node: s1: 10.176.69.86:8301
+    2019/12/19 17:03:31 [INFO] serf: Re-joined to previously known node: s1.dc1: 10.176.69.86:8302
+    2019/12/19 17:03:31 [INFO] agent: (LAN) joined: 1
+    Join completed. Synced with 1 initial agents
+    2019/12/19 17:03:31 [INFO] agent: started state syncer
+==> Consul agent running!
+    2019/12/19 17:03:38 [ERR] agent: failed to sync remote state: No cluster leader
+    2019/12/19 17:03:38 [WARN]  raft: no known peers, aborting election

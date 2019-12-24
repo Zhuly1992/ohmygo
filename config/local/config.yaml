@@ -1,0 +1,11 @@
+system:
+  contextPath: /identify-interact
+  host: 127.0.0.1
+  port: 8081
+  mode: debug # debug|test|release
+
+logger:
+  savePath: /Users/zhuly/git/duapp/mygo
+  fileName: app.log
+  stdOut: file #stdout type (file|logstash|redis|kafka)
+  debug: true
